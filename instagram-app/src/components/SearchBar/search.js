@@ -11,9 +11,9 @@ class SearchBar extends React.Component {
     }
     render() {
         return (
-            <div className='searchBar'>
-                <div className='leftNav'>
-                    <img className='logo' src={instagramLogo} alt="instagram logo looks like poloroid camera" />
+            <div class='searchBar'>
+                <div class='leftNav'>
+                    <img class='logo' src={instagramLogo} alt="instagram logo looks like poloroid camera" />
                     <h1>Instagram</h1>
                 </div>
 
@@ -21,13 +21,13 @@ class SearchBar extends React.Component {
                     className='inputSearch'
                     type="text"
                     name="item"
-                    placeholder= 'Search'
+                    placeholder= '🔍Search'
                 />
 
-                <div className='linkSymbols'>
-                    <i class="fal fa-compass"></i>
-                    <i class="fal fa-heart"></i>
-                    <i class="fal fa-user"></i>
+                <div class='linkSymbols'>
+                    <i class="far fa-compass"></i>
+                    <i class="far fa-heart"></i>
+                    <i class="far fa-user"></i>
                 </div>
             </div>
         )

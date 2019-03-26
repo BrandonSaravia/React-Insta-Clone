@@ -33,9 +33,9 @@ h1{
     display: flex;
     justify-content: space-around;
 }
-.fal{
+.far{
     margin-left: 0px;
-    font-size: 66px;
+    font-size: 60px;
 }
 .fa-compass{
     margin-left: 50px;
