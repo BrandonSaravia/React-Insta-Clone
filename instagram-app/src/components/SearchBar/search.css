@@ -1,0 +1,42 @@
+
+.searchBar{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 42px;
+    max-width: 1867px;
+    justify-content: space-between;
+}
+.logo{
+    border-right: 2px solid black;
+    width: 65px;
+    height: 65px;
+    padding-right: 11%;
+}
+.leftNav{
+    display: flex;
+}
+h1{
+    padding-left: 12%;
+    font-size: 45px;
+    margin-top: 7px;
+}
+.inputSearch{
+    text-align: center;
+    width: 425px;
+    height: 50px;
+    margin-top: 8px;
+    border-radius: 8px;
+    font-size: 29px;
+}
+.linkSymbols{
+    width: 19%;
+    display: flex;
+    justify-content: space-around;
+}
+.fal{
+    margin-left: 0px;
+    font-size: 66px;
+}
+.fa-compass{
+    margin-left: 50px;
+}
