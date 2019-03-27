@@ -22,6 +22,7 @@ class SearchBar extends React.Component {
                     type="text"
                     name="item"
                     placeholder= '🔍Search'
+                    onKeyDown={this.props.searchPosts}
                 />
 
                 <div class='linkSymbols'>

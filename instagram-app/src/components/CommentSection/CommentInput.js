@@ -2,14 +2,15 @@ import React from 'react';
 
 const CommentInput = props => {
   return (
-    <form>
+    <form onSubmit={props.addNewComment}>
+      
       <input 
         type="text"
-        value={props.name}
+        value={props.commentText}
         placeholder="Add comment... "
         name='name'
-        onChange={props.handleChanges}
-        onSubmit={props.addNewComment}
+        onChange={props.updateList}
+        
       />
     </form>
   );

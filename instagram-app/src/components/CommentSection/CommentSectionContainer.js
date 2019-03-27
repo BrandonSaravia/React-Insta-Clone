@@ -1,51 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Comment from './Comment';
 import CommentInput from './CommentInput';
 
 class CommentSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: props.comments
+      comments: props.comments,
+      commentText: ''
     };
   }
   
-  addNewComment = (event, index) => {
-    event.preventDefault();
-    
-    // const newComment = {
-    //   comments: this.state.comments,
-    //   index: this.state.id
-    // }
-    // this.setState({
-    //   comments: [...this.state.comments, newComment]
-    // })
+  addNewComment = event => {
+   event.preventDefault();
+    const newVariable = this.state.commentText;
+    const newComment = {
+      id: Date.now(),
+      username: 'you',
+      text: newVariable
+    };
+    this.setState({
+      comments: [...this.state.comments, newComment],
+      newVariable: ''
+    })
   }
+
   
-  handlechanges = event => {
-    this.setState({[event.target.name]: event.target.value})
-  }
 
   updateList = event => {
     event.preventDefault();
-    const newComment = {
-      comments: this.state.comments
-    }
-    this.setState({
-      comments: [...this.state.comments, newComment]
-    })
+    this.setState({commentText: event.target.value})
   }
-// console.log(comments);
+
   render() {
     return (
       <div>
-        
-        {this.state.comments.map((c, i) => <Comment key={i} comment={c} />)}
-        <CommentInput 
+        {this.state.comments.map(eachComment => (
+          <div key={eachComment.id} className='comment'>
+            <p>{eachComment.username} - {eachComment.text}</p>
+          </div>
+        ))}
+        <p>{this.props.timestamp}</p>
+      
+        <CommentInput
           comment={this.state.Comment}
-          handleChanges={this.handleChanges}
           updateList={this.updateList}
+          addNewComment={this.addNewComment}
         />
       </div>
     );
@@ -56,6 +56,13 @@ CommentSection.propTypes = {
   comments: PropTypes.arrayOf(
     PropTypes.shape({ text: PropTypes.string, username: PropTypes.string })
   )
+};
+
+Comment.propTypes = {
+  comment: PropTypes.shape({
+    text: PropTypes.string,
+    username: PropTypes.string
+  })
 };
 
 export default CommentSection;
