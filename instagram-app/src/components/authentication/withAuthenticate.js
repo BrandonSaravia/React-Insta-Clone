@@ -1,9 +1,25 @@
 import React from 'react';
 
-const withAuthenticate = PassedComponent => 
+const withAuthenticate = PostPage => Login => 
     class extends React.Component {
+        constructor(props){
+            super(props);
+            this.state = {
+                signedIn: false
+            }
+        }
+
+        componentDidMount() {
+            if (!localStorage.getItem('user')) {
+                this.setState({signedIn: false});
+            } else {
+                this.setState({signedIn: true});
+            }
+        }
+
         render() {
-            return <PassedComponent />;
+            if (this.state.signedIn) return <PostPage />;
+            return <Login />
         }
     }
 

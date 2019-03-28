@@ -1,6 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CommentInput from './CommentInput';
+import styled, {css} from 'styled-components'
+
+
+const CommentDiv = styled.div`
+  font-weight: 300;
+  font-size: 14px;
+`;
+
+const CommentContainerDiv = styled.div`
+  text-align: left;
+  padding: 2px;
+  margin-left: 4px;
+`;
 
 class CommentSection extends React.Component {
   constructor(props) {
@@ -34,11 +47,11 @@ class CommentSection extends React.Component {
 
   render() {
     return (
-      <div>
+      <CommentContainerDiv>
         {this.state.comments.map(eachComment => (
-          <div key={eachComment.id} className='comment'>
+          <CommentDiv key={eachComment.id}>
             <p>{eachComment.username} - {eachComment.text}</p>
-          </div>
+          </CommentDiv>
         ))}
         <p>{this.props.timestamp}</p>
       
@@ -47,7 +60,7 @@ class CommentSection extends React.Component {
           updateList={this.updateList}
           addNewComment={this.addNewComment}
         />
-      </div>
+      </CommentContainerDiv>
     );
   }
 }

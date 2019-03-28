@@ -9,14 +9,13 @@ import Login from "./components/Login/Login"
 const ComponentFromWithAuthenticate = withAuthenticate(PostPage)(Login);
 
 
-
+// (Login)
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      filteredPosts: [],
-      signIn: true
+      filteredPosts: []
     };
   };
 
