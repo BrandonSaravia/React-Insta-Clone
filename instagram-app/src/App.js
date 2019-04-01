@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import PostsContainer from './components/PostContainer/PostContainer';
-import SearchBar from './components/SearchBar/search';
 import PostPage from './components/PostContainer/PostPage';
 import withAuthenticate from "./components/authentication/withAuthenticate";
 import Login from "./components/Login/Login"
@@ -9,36 +7,37 @@ import Login from "./components/Login/Login"
 const ComponentFromWithAuthenticate = withAuthenticate(PostPage)(Login);
 
 
-// (Login)
-
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      filteredPosts: []
+
     };
   };
 
-  searchPostsHandler = e => {
-    const posts = this.state.posts.filter(p => {
-      if (p.username.includes(e.target.value)) {
-        return p;
-      }
-    });
-    this.setState({ filteredPosts: posts });
-  };
+  // searchPostsHandler = e => {
+  //   const posts = this.state.posts.filter(p => {
+  //     if (p.username.includes(e.target.value)) {
+  //       return p;
+  //     }
+  //   });
+  //   this.setState({ filteredPosts: posts });
+  // };
 
   render() {
     return (
       
       <div className="App">
         
-        <SearchBar 
+        {/* <SearchBar 
           searchTerm={this.state.searchTerm}
           searchPosts={this.searchPostsHandler}
-        />
+        /> */}
+        
       
         <ComponentFromWithAuthenticate />
+        
+        
       </div>
     );
   }

@@ -44,36 +44,30 @@ const LinkSymbols = styled.div`
     justify-content: space-around;
 `;
 
-class SearchBar extends React.Component {
-    constructor() {
-      super();
-      this.state = {
-        text: ""
-      };
-    }
-    render() {
-        return (
-            <Searchbar>
-                <LeftNav>
-                    <Logo src={instagramLogo} alt="instagram logo looks like poloroid camera" />
-                    <H1>Instagram</H1>
-                </LeftNav>
+const SearchBar = props =>{
+    return (
+        <Searchbar>
+            <LeftNav>
+                <Logo src={instagramLogo} alt="instagram logo looks like poloroid camera" />
+                <H1>Instagram</H1>
+            </LeftNav>
 
-                <InputSearch
-                    type="text"
-                    name="item"
-                    placeholder= '🔍Search'
-                    onKeyDown={this.props.searchPosts}
-                />
+            <InputSearch
+                type="text"
+                placeholder= '🔍Search'
+                value = {props.filteredPostsText}
+                onSubmit={props.fetchPosts}
+                onChange={props.handleChanges}
+            />
 
-                <LinkSymbols>
-                    <i class="far fa-compass"></i>
-                    <i class="far fa-heart"></i>
-                    <i class="far fa-user"></i>
-                </LinkSymbols>
-            </Searchbar>
-        )
-    }
+            <LinkSymbols>
+                <i class="far fa-compass"></i>
+                <i class="far fa-heart"></i>
+                <i class="far fa-user"></i>
+            </LinkSymbols>
+        </Searchbar>
+    )
 }
+
 
 export default SearchBar

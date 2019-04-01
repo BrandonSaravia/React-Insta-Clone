@@ -2,7 +2,7 @@ import React from 'react';
 import CommentSection from '../CommentSection/CommentSectionContainer';
 import PostHeader from './Postheader';
 import PropTypes from 'prop-types';
-import likesContainer from './Likes';
+import LikesContainer from './Likes';
 import styled, {css} from 'styled-components'
 
 
@@ -25,13 +25,19 @@ class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      likes: props.post.likes
+      likes: props.post.likes,
+      id: false
     }
   }
+
   addLike = () => {
     let likes = this.state.likes + 1;
-    this.setState({likes});
+    if (this.state.id === true){
+      likes = this.state.likes - 1
+    }
+    this.setState({ likes, id: !this.state.id });
   }
+
   render() {
     return (
       <PostBorder>
@@ -45,7 +51,7 @@ class Post extends React.Component {
             src={this.props.post.imageUrl}
           />
         </PostImageWrapper>
-        <likesContainer
+        <LikesContainer
           addLike={this.addLike}
           likes={this.state.likes}
         />
